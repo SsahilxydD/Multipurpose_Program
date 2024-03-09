@@ -62,7 +62,6 @@ void single()
 		system("pause>0");
 		system("cls");
 	}
-
 }
 
 

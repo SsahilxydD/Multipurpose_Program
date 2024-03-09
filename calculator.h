@@ -2,6 +2,8 @@
 #include <iostream>
 #include <Windows.h>
 
+bool invalidInput = false;
+
 void Calculator()
 {
 	float x, y;
@@ -21,10 +23,22 @@ void Calculator()
 
 		switch (op)
 		{
-		case'+': std::cout << x << " " << op << " " << y << " = " << x + y; Sleep(2000); system("cls"); break;
-		case'-': std::cout << x << " " << op << " " << y << " = " << x - y; Sleep(2000); system("cls"); break;
-		case'*': std::cout << x << " " << op << " " << y << " = " << x * y; Sleep(2000); system("cls"); break;
-		case'/': std::cout << x << " " << op << " " << y << " = " << x / y; Sleep(2000); system("cls"); break;
+		case'+': std::cout << x << " " << op << " " << y << " = " << x + y; std::cout << "\n\n"
+			<< "Press Enter To Continue.";
+			system("pause>0");
+			system("cls"); invalidInput = false; break;
+		case'-': std::cout << x << " " << op << " " << y << " = " << x - y; std::cout << "\n\n"
+			<< "Press Enter To Continue.";
+			system("pause>0");
+			system("cls"); invalidInput = false; break;
+		case'*': std::cout << x << " " << op << " " << y << " = " << x * y; std::cout << "\n\n"
+			<< "Press Enter To Continue.";
+			system("pause>0");
+			system("cls"); invalidInput = false; break;
+		case'/': std::cout << x << " " << op << " " << y << " = " << x / y; std::cout << "\n\n"
+			<< "Press Enter To Continue.";
+			system("pause>0");
+			system("cls"); invalidInput = false; break;
 		case'%':
 			bool intX, intY;
 			intX = (int)x;
@@ -32,14 +46,30 @@ void Calculator()
 
 			if (intX && intY)
 			{
-				std::cout << x << " " << op << " " << y << " = " << (int)x % (int)y; Sleep(2000); system("cls");
+				std::cout << x << " " << op << " " << y << " = " << (int)x % (int)y; std::cout << "\n\n"
+					<< "Press Enter To Continue."; invalidInput = false;
+				system("pause>0");
+				system("cls");
 			}
 			else
 			{
-				std::cout << "Invalid Input"; Sleep(2000); system("cls");
+				std::cout << "Invalid Input"; std::cout << "\n\n"
+					<< "Press Enter To Continue."; invalidInput = false;
+				system("pause>0");
+				system("cls");
 			}
 			break;
-		default: std::cout << "Please Enter Suitable Numbers or Operator."; Sleep(2000); system("cls");
+
+			invalidInput = false;
+
+		default:
+		{
+			std::cout << "Please Enter Suitable Numbers or Operator.\n\nPress any key to Close.";
+			invalidInput = true;
+			system("pause > nul");
+			system("cls");
+			break;
 		}
+		}		
 }
 
